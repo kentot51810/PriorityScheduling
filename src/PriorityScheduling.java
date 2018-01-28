@@ -56,21 +56,29 @@ public class PriorityScheduling {
     }
 
     private static void showTheGanttChart() {
-        out.println("--------------------------------Gantt Chart--------------------------------");
+        out.println("-------------------------------Gantt Chart-------------------------------");
 
+        out.print("PROCESS  ");
         for (Map.Entry<Map.Entry<String, Integer>, Integer> entry : list) {
-            out.print("|\t" + entry.getKey().getKey() + "\t");
+            out.format("|%2s%5s%5s","",entry.getKey().getKey(),"");
         }
         out.println("|");
 
+        out.print("BURST    ");
         for (Map.Entry<Map.Entry<String, Integer>, Integer> entry : list) {
-            out.print("|\t" + entry.getKey().getValue() + "\t");
+            out.format("|%2s%5s%5s","",entry.getKey().getValue(),"");
         }
         out.println("|");
 
-        out.print(0);
+        out.print("PRIORITY ");
+        for (Map.Entry<Map.Entry<String, Integer>, Integer> entry : list) {
+            out.format("|%2s%5s%5s","",entry.getValue(),"");
+        }
+        out.println("|");
+
+        out.format("%10s",0);
         for (int index = 0; index < listOfBurstTime.size(); index++) {
-            out.print("\t\t" + decimalFormat.format(turnAroundTimeList.get(index)));
+            out.format("%13s",decimalFormat.format(turnAroundTimeList.get(index)));
         }
 
         out.println("\n\n");
