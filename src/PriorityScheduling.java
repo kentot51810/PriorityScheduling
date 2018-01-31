@@ -23,7 +23,7 @@ public class PriorityScheduling {
         turnAroundTimeList = new ArrayList<>();
         scn = new Scanner(in);
         decimalFormat = new DecimalFormat("0.#");
-        processValueMap = new HashMap<>();
+        processValueMap = new LinkedHashMap<>();
     }
 
     public static void main(String[] args) {
@@ -56,7 +56,7 @@ public class PriorityScheduling {
     }
 
     private static void showTheGanttChart() {
-        out.println("-------------------------------Gantt Chart-------------------------------");
+        out.println("--------------------------------Gantt Chart--------------------------------");
 
         out.print("PROCESS  ");
         for (Map.Entry<Map.Entry<String, Integer>, Integer> entry : list) {
